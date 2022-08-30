@@ -1,5 +1,12 @@
 # plumber.R
 
+#* @plumber
+function(pr) {
+  pr %>%
+    pr_mount("faithful", plumb("faithful.R")) |>
+    pr_mount("iris", plumb("iris.R"))
+}
+
 #* @preempt __first__
 #* @get /
 function(req, res) {
@@ -9,25 +16,9 @@ function(req, res) {
   res
 }
 
-#* Echo back the input
-#* @param msg The message to echo
-#* @get /echo
-function(msg = "") {
-  list(msg = paste0("The message is: '", msg, "'"))
-}
-
-#* Plot a histogram
-#* @serializer png
-#* @get /plot
-function() {
-  rand <- rnorm(100)
-  hist(rand)
-}
-
-#* Return the sum of two numbers
-#* @param a The first number to add
-#* @param b The second number to add
-#* @post /sum
-function(a, b) {
-  as.numeric(a) + as.numeric(b)
+# Set access control
+#* @filter cors
+cors <- function(res) {
+  res$setHeader("Access-Control-Allow-Origin", "http://localhost:3000")
+  plumber::forward()
 }
