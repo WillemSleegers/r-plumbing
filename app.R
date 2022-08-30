@@ -2,10 +2,8 @@ library(plumber)
 
 port <- Sys.getenv("PORT")
 
-server <- plumb("plumber.R")
+if (port == "") port <- "8000"
 
-server$run(
-  host = "0.0.0.0",
-  port = as.numeric(port),
-  swagger = TRUE
-)
+root <- pr("plumber.R")
+
+pr_run(root, host = "0.0.0.0", port = as.numeric(port))
