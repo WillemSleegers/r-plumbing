@@ -1,12 +1,8 @@
 {
-  "name": "heroku-plumber-api",
+  "name": "r-plumbing",
   "stack": "heroku-22",
   "description": "This is the R plumber API for my dashboard apps.",
-  "keywords": [
-    "r",
-    "plumber",
-    "heroku-buildpack-r"
-  ],
+  "keywords": ["r", "plumber", "heroku-buildpack-r"],
   "repository": "https://github.com/willemsleegers/r-plumbing",
   "success_url": "/",
   "formation": {
