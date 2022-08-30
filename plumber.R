@@ -2,6 +2,7 @@
 
 #* @plumber
 function(pr) {
+  list.files()
   pr %>%
     pr_mount("faithful", plumb("faithful.R")) |>
     pr_mount("iris", plumb("iris.R"))
