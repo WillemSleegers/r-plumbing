@@ -2,7 +2,7 @@
 
 #* @plumber
 function(pr) {
-  pr %>%
+  pr |>
     pr_mount("faithful", plumb("faithful.r")) |>
     pr_mount("iris", plumb("iris.r"))
 }
@@ -19,6 +19,9 @@ function(req, res) {
 # Set access control
 #* @filter cors
 cors <- function(res) {
-  res$setHeader("Access-Control-Allow-Origin", "https://splendorous-puffpuff-1bfd1c.netlify.app/")
+  res$setHeader(
+    "Access-Control-Allow-Origin",
+    "https://splendorous-puffpuff-1bfd1c.netlify.app"
+  )
   plumber::forward()
 }
