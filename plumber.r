@@ -19,6 +19,6 @@ function(req, res) {
 # Set access control
 #* @filter cors
 cors <- function(res) {
-  res$setHeader("Access-Control-Allow-Origin", "http://localhost:3000")
+  res$setHeader("Access-Control-Allow-Origin", "https://splendorous-puffpuff-1bfd1c.netlify.app/")
   plumber::forward()
 }
