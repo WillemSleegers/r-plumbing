@@ -1,10 +1,12 @@
 # plumber.R
+#* @apiTitle My R API
 
 #* @plumber
 function(pr) {
   pr |>
     pr_mount("faithful", plumb("faithful.r")) |>
-    pr_mount("iris", plumb("iris.r"))
+    pr_mount("iris", plumb("iris.r")) |>
+    pr_mount("math", plumb("math.r"))
 }
 
 #* @preempt __first__

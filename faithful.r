@@ -1,5 +1,4 @@
 # faithful.R
-#* @apiTitle Faithful Data API
 
 #* Get faithful data
 #* @get /data
